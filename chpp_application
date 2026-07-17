@@ -1,0 +1,99 @@
+Arche is a free and open-source statistical research application for the Hattrick community. The initial product will be a public GitHub repository containing the source code for a match-outcome simulator and expected-goals model.
+
+The following description represents the complete planned functionality of the initial Arche application.
+
+The purpose of Arche is to model the relationship between completed-match team ratings, match events, player specialities, and match outcomes.
+
+Arche will estimate:
+
+* expected goals for both teams;
+* home-win, draw, and away-win probabilities;
+* scoreline probability distributions;
+* ordinary-chance allocation probabilities;
+* chance-conversion probabilities by attacking sector;
+* the statistical effects of tactics, counter-attacks, set pieces, and special events where sufficient data is available.
+
+The core model will operate from completed-match team ratings. It will not attempt to reconstruct complete team ratings from individual player skills.
+
+To develop, calibrate, and validate the model, I request permission to retrieve a statistically meaningful dataset of completed matches through the official CHPP OAuth and XML interfaces. No Hattrick website pages will be scraped.
+
+The required completed-match data may include, where available:
+
+* match ID, date, Hattrick season, match type, and competition;
+* home and away team identifiers;
+* final score, half-time score, extra-time information, and penalty-shootout information;
+* midfield ratings;
+* left, central, and right attack ratings;
+* left, central, and right defence ratings;
+* direct and indirect set-piece ratings;
+* possession by half or other available periods;
+* formation;
+* tactic type and tactic level;
+* weather;
+* home, away, neutral-venue, and derby information where relevant;
+* team attitude and man-marking information where available;
+* starting lineups and substitutes;
+* player positions and individual orders;
+* substitutions and positional changes;
+* injuries, cards, confusion, and other state-changing match events;
+* coded match events, including event minute, event type, event team, and involved players.
+
+The coded event data is required to distinguish and analyse ordinary chances, missed chances, goals by attacking sector, counter-attacks, direct and indirect free kicks, penalties, long shots, pressing events, special events, and other events that may materially affect the match state.
+
+Where available, time-stamped rating snapshots or rating periods may also be used. If only final average ratings are available, state-changing events will be used to identify or exclude matches where those averages may not accurately represent the ratings at the time of each chance.
+
+Limited player-level information is required to identify and model special events. This may include, where available:
+
+* player ID;
+* player speciality;
+* TSI;
+* salary;
+* starting position;
+* individual order;
+* substitute status;
+* substitution time and minutes played;
+* the identity and position of players involved in coded match events.
+
+Player speciality and lineup position will be used to determine which special events were possible and which players could participate in them.
+
+TSI and salary may be used as supplementary proxy variables to approximate a player’s general skill profile, likely main-skill range, and possible hidden sublevel effects. They will not be treated as exact measurements of individual skills.
+
+Because exact player skills are not available for arbitrary players, Arche will not attempt to reproduce the complete skill-based resolution formula for every special event. Instead, special-event occurrence and outcome probabilities will be estimated statistically from observed match events, player specialities, lineup positions, TSI, salary, team ratings, and other available match information.
+
+Player-level information will not be used for transfer-market tracking, player valuation, commercial profiling, or reconstructing complete team ratings.
+
+The dataset will retain the match date, Hattrick season, competition type, and relevant match-engine period so that matches played under materially different rules or match-engine versions can be analysed separately.
+
+Automated data collection will only be performed through approved CHPP interfaces and within the frequency, volume, endpoint, and access limits authorised by the CHPP administrators.
+
+The collected match and player data will be stored privately and used only for statistical research, model development, calibration, and validation.
+
+The public GitHub repository will contain:
+
+* match simulator and expected-goals source code;
+* documented mathematical formulas and modelling assumptions;
+* fitted model coefficients and aggregated calibration results, subject to CHPP approval;
+* automated tests;
+* synthetic or manually constructed example matches;
+* technical documentation;
+* the source code required to retrieve, structure, process, and analyse the approved match data.
+
+The public repository will not contain raw CHPP XML responses, downloaded match or player databases, identifiable match-data exports, OAuth credentials, access tokens, or private information belonging to individual Hattrick users.
+
+The source code will be published under the MIT License. The licence applies only to the software and does not grant permission to redistribute Hattrick data.
+
+The project will be read-only. It will not:
+
+* submit match orders or perform gameplay actions;
+* automate access beyond the scope expressly approved by CHPP;
+* access hidden or unauthorised information;
+* attempt to predict random seeds or exact future events;
+* exploit game bugs;
+* circumvent Hattrick Supporter or other premium functionality;
+* redistribute raw CHPP data to other applications, websites, or services.
+
+Arche is intended to provide a transparent, reproducible, and statistically validated model of the relationship between team ratings, player specialities, match events, and match outcomes. The project will be available to the Hattrick community as a whole.
+
+I confirm that the application will operate in accordance with the CHPP Product License Agreement. Any material change, additional function, or separate use of Hattrick data will be submitted to the CHPP administrators for approval before release.
+
+I would also appreciate confirmation that fitted model coefficients and aggregated, non-identifiable calibration tables derived from the approved dataset may be published in the open-source GitHub repository.
